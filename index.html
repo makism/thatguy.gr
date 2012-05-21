@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>i am thatguy· · · </title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+    * { margin: 0; padding: 0; }
+    body { background-image: url("assets/background.jpg"); }
+    #container { padding: 5% 50% 0% 50%; }
+    .icon { width: 32px; height: 32px; }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script>
+    var entries = {
+        "email": "im@thatguy.gr",
+        "linkedin": "http://gr.linkedin.com/in/makism",
+        "plus": "",
+        "github": "https://github.com/makism/",
+        "heart": "",
+        "lastfm": "http://www.last.fm/user/makism",
+        "wordpress": "http://a100billionneurons.wordpress.com/",
+        "youtube": ""
+    }
+    
+    var baseNormal = "assets/icons/normal/";
+    var baseOver = "assets/icons/over/";
+    
+    $(document).ready(function() {
+        jQuery.each(entries, function(index, value) {
+            var image = '<a href="' + value + '"><img src="assets/icons/normal/' + index + '.png" class="icon" id="' + index + '"/></a>';
+            $("#container").append(image);
+        });
+        
+        $(".icon").mouseover(function() {
+            this.src = baseOver + this.id + ".png";
+        });
+        
+        $(".icon").mouseleave(function() {
+            this.src = baseNormal + this.id + ".png";
+        });
+    });
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>

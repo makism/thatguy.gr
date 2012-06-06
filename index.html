@@ -11,6 +11,7 @@
     .icon { width: 32px; height: 32px; }
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="assets/js/detectmobilebrowser.js"></script>
     <script>
     var entries = {
         "email": "mailto:im@thatguy.gr",
@@ -20,7 +21,7 @@
         "heart": "",
         "lastfm": "http://www.last.fm/user/makism",
         "wordpress": "http://a100billionneurons.wordpress.com/",
-        "youtube": ""
+        "youtube": "http://www.youtube.com/user/makhsm"
     }
     
     var baseNormal = "assets/icons/normal/";
@@ -39,12 +40,15 @@
         $(".icon").mouseleave(function() {
             this.src = baseNormal + this.id + ".png";
         });
+
+        if (jQuery.browser.mobile)
+            $("#qrCode").hide();
     });
     </script>
   </head>
   <body>
     <div id="mainContainer">
-        <img src="assets/db-qr-therose_disabled.png" width="195" height="195" title="(disabled)"/>
+        <img id="qrCode" src="assets/db-qr-thatrose_disabled.png" width="195" height="195" title="(disabled)"/>
         <div id="container"></div>
     </div>
   </body>
